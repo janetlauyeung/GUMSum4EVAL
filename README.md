@@ -16,7 +16,7 @@
 ```
 
 ## OBTAIN THE DATA
-The underlying `full texts` for the `reddit` data (`document id` as in `GUM_reddit_*`) are currently ❗**underscored**❗
+The underlying `full texts` for the `reddit` data (`document id` in the form of `GUM_reddit_*`) are currently ❗**underscored**❗
 due to data license issues. The existing `.json` file under `../data/` named `GUMSum_underscored.json` do not contain 
 full texts of all the reddit documents. 
 
@@ -43,11 +43,10 @@ At a minimum, each document id corresponds to two key-value pairs:
 - `gumsum_dict[DOCID]["human1"]`: a human-written summary for the given document
 
 The entire GUMSum (i.e. 213 documents) is intended to be a test set for summarization generalization across genres. 
-We used the 24 document subset for the human evaluation, and this portion was double annotated (as described in the paper) 
+We used the 24 document subset for the human evaluation, and this portion was double annotated (as described in the [paper](https://arxiv.org/abs/2306.11256)) 
 by collecting a second human-written summary as long as the system-generated summaries from 2 supervised systems and GPT3:
 - `gumsum_dict[DOCID]["human2"]`: a second human-written summary for the given document
 - `gumsum_dict[DOCID]["brio"]`: a system-generated summary using [the BRIO model (Liu et al., ACL 2022)](https://aclanthology.org/2022.acl-long.207/)
 - `gumsum_dict[DOCID]["simcls"]`: a system-generated summary using [the SimCLS model (Liu & Liu, ACL-IJCNLP 2021)](https://aclanthology.org/2021.acl-short.135/)
 - `gumsum_dict[DOCID]["gpt3"]`: a system-generated summary using `GPT3-text-davinci-002`
 - `gumsum_dict[DOCID]["brioft"]`: a system-generated summary by fine-tuning the BRIO model using GUMSum
-
