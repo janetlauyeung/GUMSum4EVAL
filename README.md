@@ -3,7 +3,7 @@
 
 ### *Repository for ACL 2023 (Findings): [GUMSum: Multi-Genre Data and Evaluation for English Abstractive Summarization](https://arxiv.org/abs/2306.11256)*
 ```
-@inproceedings{@inproceedings{liu-zeldes-2023-GUMSum,
+@inproceedings{liu-zeldes-2023-GUMSum,
     title = "{GUMSum}: Multi-Genre Data and Evaluation for English Abstractive Summarization",
     author = "Yang Janet Liu and Zeldes, Amir",
     booktitle = "Findings of the Association for Computational Linguistics: ACL 2023",
@@ -44,9 +44,29 @@ At a minimum, each document id corresponds to two key-value pairs:
 
 The entire GUMSum (i.e. 213 documents) is intended to be a test set for summarization generalization across genres. 
 We used the 24 document subset for the human evaluation, and this portion was double annotated (as described in the [paper](https://arxiv.org/abs/2306.11256)) 
-by collecting a second human-written summary as long as the system-generated summaries from 2 supervised systems and GPT3:
+by collecting a second human-written summary as well as the system-generated summaries from 2 supervised systems, GPT3, and a fine-funing BRIO using GUMSum:
 - `gumsum_dict[DOCID]["human2"]`: a second human-written summary for the given document
 - `gumsum_dict[DOCID]["brio"]`: a system-generated summary using [the BRIO model (Liu et al., ACL 2022)](https://aclanthology.org/2022.acl-long.207/)
 - `gumsum_dict[DOCID]["simcls"]`: a system-generated summary using [the SimCLS model (Liu & Liu, ACL-IJCNLP 2021)](https://aclanthology.org/2021.acl-short.135/)
 - `gumsum_dict[DOCID]["gpt3"]`: a system-generated summary using `GPT3-text-davinci-002`
 - `gumsum_dict[DOCID]["brioft"]`: a system-generated summary by fine-tuning the BRIO model using GUMSum
+
+
+
+
+## HUMAN EVALUATION 
+We conducted a human evaluation and asked participants (12 Linguistics students) to write a summary following the guidelines 
+and answer questions focusing on the following aspects and provide justifications when applicable. 
+Please see the appendices of the paper for a full copy of the survey.
+1. preference 
+2. substitutive
+3. hallucination 
+4. faithfulness 
+5. english quality
+6. source
+7. difficulty
+
+We also make these responses available for interested researchers in order to facilitate discussions 
+on what's considered a good summary and what are the challenges and difficulties. 
+You can access the responses of our human evaluation [here](https://docs.google.com/spreadsheets/d/e/2PACX-1vQlwJgTH115Bi_CRCfZQnmVD7hkHz4jnwPwVYq_mn7tINMgLFKM5COvh4ktxLsujb4JDRiDpUvt3qib/pubhtml). 
+If you'd like to obtain a copy of these responses, please reach out! 
